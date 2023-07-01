@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style> 
+        .image{
+            width:100%;
+            height: 100vh;
+        }
+       .login
+        {
+            margin-left:1400px;
+        }
+        h2{
+            text-align: center;
+        }
+        h1{
+            text-align: center;
+        }
+       
+    </style>
+     <script>
+        function main(){         
+            rcost();
+            tamic();
+            extra();
+            total();
+            final();
+        }
+        function rcost(){
+             var b=parseInt(document.getElementById("nd").value);
+             var c=parseInt(document.getElementById("rtype").value);
+             var tc=b*c;
+             document.getElementById("trc").value=tc;
+        }
+        function tamic(){
+            var d=parseInt(document.getElementById("AMI").value);
+            var e=parseInt(document.getElementById("nd").value);
+            document.getElementById("tami").value=d*e;
+        }
+        function total(){
+            var r=parseInt(document.getElementById("trc").value);
+            var am=parseInt(document.getElementById("tami").value);
+            document.getElementById("tc").value=r+am;
+        }
+        function extra(){
+            var f=parseInt(document.getElementById("np").value);
+            var g=parseInt(document.getElementById("nd").value);
+            var h=parseInt(document.getElementById("rtype").value);
+            if(f<=2){
+                document.getElementById("extrap").value=0;
+            }
+            else if(f>2){
+                document.getElementById("extrap").value=g*1000*(f-2);
+            }
+        }
+        function final(){
+            var i=parseInt(document.getElementById("ad").value);
+            var j=parseInt(document.getElementById("tc").value);
+            document.getElementById("bal").value=j-i;
+        }
+    </script>
+</head>
+<body>
+    <div class="book">
+       <form action="./submit.html">
+        <H1><i>*** REGISTRATION FORM ***</i></H1>
+        <BR>
+            <BR>
+                <H2>--CUSTOMER INFO--</H2>
+            <label>FIRST NAME :</label>
+            <input type="text" class="input"placeholder="firstname" required>
+            <label>LASTNAME NAME :</label>
+            <input type="text"class="input" placeholder="lastname" required>
+            <label>CHECK IN DATE :</label>
+            <INPUT type="date"class="input" ID="Date" placeholder="check in date" required>
+            <LABEL FOR="ND">TOTAL NO OF DAYS :</LABEL>
+            <INPUT type="number" class="input"id="nd" placeholder="no of days" required>
+            <LABEL FOR="NP">TOTAL NO OF PERSONS :</LABEL>
+            <INPUT type="number" class="input" id="np" placeholder="no of persons" required>
+            <h2>--ROOM INFORMATION--</h2>
+            <LABEL FOR="rtype">ROOM TYPE :</LABEL>
+            <SELECT ID="rtype" style height="30px" >
+                <OPTION VALUE="0">SELECT</OPTION>
+                <OPTION VALUE="2500">DELUX(2500/-)</OPTION>
+               
+                <OPTION VALUE="4000">SUITE(4000/-)</OPTION>
+            </SELECT>
+            <BR>
+                <br>
+                <LABEL>AMENITIES :</LABEL>
+            <SELECT  id="AMI">
+                <OPTION VALUE="0" >SELECT</OPTION>
+                <OPTION VALUE="1000/-">AC(1000/-)</OPTION>
+                <OPTION VALUE="300/-">LOCKER(300/-)</OPTION>
+            </SELECT>
+            <br>
+            <br>
+            <div class="extra">
+            --Upto 2 people : No changes in cost<br><br>
+             per day cost for extra person:1000/--  </div>
+            <br><br>
+            <LABEL> <H2> <LABEL>ADVANCE PAYMENT</H2></LABEL>
+            <INPUT TYPE="NUMBER" CLASS="INPUT" ID="ad" PLACEHOLDER="ADVANCE" onkeyup="main()" REQUIRED>
+             
+                <h2>--ADDITIONAL CHARGES--</h2>
+                <INPUT TYPE="NUMBER" CLASS="INPUT" id="extrap" PLACEHOLDER="EXTRA PERSONS" readonly>
+            <H2>--TOTAL COST--</H2>
+            <LABEL>TOTAL ROOM COST:</LABEL>
+            <INPUT TYPE="NUMBER" CLASS="INPUT" id="trc" PLACEHOLDER="TOTAL ROOM COST" readonly>
+            <label >TOTAL AMENITIES COST:</label>
+            <INPUT type="number" class="input" id="tami" placeholder="total amenities cost" readonly>
+            <label>TOTAL COST:</label>
+            <INPUT type="number" class="input" id="tc" placeholder="total cost" readonly>               
+            <LABEL><h2>BALANCE AMOUNT</h2></LABEL>
+            <INPUT TYPE="NUMBER" CLASS="INPUT" id="bal" PLACEHOLDER="BALANCE AMOUNT" readonly>
+                <BR> <BR>
+        
+            <BUTTON  CLASS="btn"> REGISTER</BUTTON>   
+        </form>
+</div>
+   
+</body>
+</html>
